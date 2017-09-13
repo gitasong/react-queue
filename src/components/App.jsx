@@ -1,12 +1,11 @@
 import React from "react";
-import Header from "./Header";
-import Queue from "./Queue";
+import Pbj from "./Pbj";
+import PropTypes from "prop-types";
 
-function App(){
+function App(props){
   return (
     <div>
-      <Header/>
-      <Queue/>
+      <Pbj/>
     </div>
   );
 }
