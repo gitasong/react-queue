@@ -2,7 +2,7 @@ import React from "react";
 import TicketList from "./TicketList";
 import NewTicketControl from "./NewTicketControl";
 
-class Queue extends React.Component{
+class Pbj extends React.Component{
 
   constructor(props) {
     super(props);
