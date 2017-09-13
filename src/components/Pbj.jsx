@@ -6,15 +6,21 @@ class Pbj extends React.Component{
 
   constructor(props) {
     super(props);
-    this.state = {
-      masterTicketList: []
-    };
-    this.addNewTicketToList = this.addNewTicketToList.bind(this);
-    this.updateTicketTimeSinceOpened = this.updateTicketTimeSinceOpened.bind(this);
+    this.state = "Collect your ingredients. (2 slices bread, 1-2 butter knives, 1 jar peanut butter, 1 jar jelly or jam)";
+    console.log(this.state);
   }
 
   componentWillMount() {
     console.log('componentWillMount');
+  }
+
+  render(){
+    return (
+      <div>
+        <TicketList ticketList = {this.state.masterTicketList}/>
+        <NewTicketControl onNewTicketCreation= {this.addNewTicketToList}/>
+      </div>
+    );
   }
 
   componentDidMount() {
@@ -43,30 +49,6 @@ class Pbj extends React.Component{
 
   componentWillUnmount(){
     clearInterval(this.timeSinceOpenedChecker);
-  }
-
-  addNewTicketToList(newTicket){
-    var newMasterTicketList = this.state.masterTicketList.slice();
-    newMasterTicketList.push(newTicket);
-    this.setState({masterTicketList: newMasterTicketList});
-  }
-
-  updateTicketTimeSinceOpened() {
-    console.log("check");
-    let newMasterTicketList = this.state.masterTicketList.slice();
-    newMasterTicketList.forEach((ticket) =>
-     ticket.setTimeSinceOpened()
-    );
-    this.setState({masterTicketList:newMasterTicketList})
-  }
-
-  render(){
-    return (
-      <div>
-        <TicketList ticketList = {this.state.masterTicketList}/>
-        <NewTicketControl onNewTicketCreation= {this.addNewTicketToList}/>
-      </div>
-    );
   }
 }
 
